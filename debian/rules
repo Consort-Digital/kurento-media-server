@@ -7,10 +7,9 @@
 	dh $@ --parallel
 
 override_dh_auto_configure:
-	export FINAL_INSTALL_DIR=/usr
-	dh_auto_configure -- -DCMAKE_INSTALL_SYSCONFDIR=/etc -DGENERATE_TESTS=TRUE
+	dh_auto_configure -- -DGENERATE_TESTS=TRUE -DCMAKE_INSTALL_SYSCONFDIR=/etc
 
 .PHONY: override_dh_strip
 
 override_dh_strip:
-	dh_strip --dbg-package=kurento-media-server-dbg
+	dh_strip --dbg-package=kms-core-dbg
